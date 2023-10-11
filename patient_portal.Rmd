@@ -1,0 +1,31 @@
+---
+title: "Analyzing Topics and Sentiment of User Reviews to Enhance Healthcare Delivery through and Patient Experience on Patient Portals: A Case Study"
+output: html_document
+---
+Lesi He, MS\(^1\), Wanjing Wang, BS\(^2\), Rohit Khurana, BS\(^3\), Hongfang Liu, PhD4, Ming Huang, PhD\(^{4,5}\) \
+
+\(^1\)Columbia University, NY, USA; \(^2\)University of Pennsylvania, PA, USA; \(^3\)Stanford University, CA, USA; \(^4\)University of Texas Health Science Center at Houston, TX, USA; \(^5\)Mayo Clinic, Rochester, MN, USA \
+
+Note: This project is currently in process; therefore, the complete methods and results are not yet available on the website  \
+ \
+
+## Introduction
+In recent years, patient portals have emerged as one of the essential tools in healthcare, revolutionizing the way patients and healthcare providers interact. They empower patients by granting them greater control over their health information and fostering more direct communication with their healthcare providers. Patients can efficiently send secure messages, schedule appointments, and retrieve their health records through the patient portal's website or dedicated application [1]. The adoption of patient portals has led to improved patient engagement, transforming the healthcare landscape into a more patient-centric environment [2]. As these portals become increasingly integral to healthcare delivery, it is paramount to evaluate the user experience to improve healthcare delivery. This study delves into the analysis of user reviews for a patient portal application. The objective is to unearth trends in user perceptions and highlight specific features that can significantly impact the user experience for patient-centered care.
+
+## Methods
+Patient portal review data for the patient portal application was sourced from two prominent online platforms, referred to here as A and B, to ensure research ethics and anonymity. We also designed a data model of patient portal reviews for modeling the topics discussed by patients in these reviews. The data model was initially created on the basis of literature reviews of patient portal functionalities [2] and furthered refined after analyzing 100 reviews randomly selected from the platform A and 200 reviews from the platform B. We randomly selected about 25% of these reviews from Platfrom A and B to create an annotated corpus for content analysis and model development. Each review was tokenized into sentences for labeling topics discussed by patients and sentiments toward these topics. We used a standard procedure for topic and sentiment annotation. Two annotators independently labeled topics and sentiments, following a well-defined data schema and annotation guidelines. Iterative cycles of annotation and refinement were carried out until a high level of agreement was achieved. The inter annotator agreement score between the two annotators was 0.88 for topics and 0.93 for sentiment. 
+
+## Future Steps
+1. Can chatGPT do the sentiment analysis for us? (Answer: Yes! With acceptable agreement score comparing to manual annotation) \
+2. Can chatGPT label the topic of the reviews based on provided standards? (Working on it!) \
+3. Develop an artificial intelligence algorithm utilizing the annotated corpus for the automated analysis of millions of patient portal reviews
+4. Compare results from Step 1 & 2 with Step 3
+
+## References
+1. De A, Huang M, Feng T, Yue X, Yao L. Analyzing Patient Secure Messages Using a Fast Health Care Interoperability Resources (FIHR)–Based Data Model: Development and Topic Modeling Study
+J Med Internet Res 2021;23(7):e26770. doi: 10.2196/26770
+2. Irizarry T, DeVito Dabbs A, Curran CR. Patient portals and patient engagement: A state of the science review. Journal of Medical Internet Research. 2015;17(6):e148.doi:10.2196/jmir.4255
+3. Huang M, Khurana A, Mastorakos G, et al. Patient Portal Messaging for Asynchronous Virtual Care During the COVID-19 Pandemic: Retrospective Analysis. JMIR Human Factors. 2022 May;9(2):e35187
+
+
+
