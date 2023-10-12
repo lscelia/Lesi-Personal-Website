@@ -1,6 +1,7 @@
 ---
 title: "Analyzing Topics and Sentiment of User Reviews to Enhance Healthcare Delivery through and Patient Experience on Patient Portals: A Case Study"
 output: html_document
+site: _site.yml
 ---
 Lesi He, MS\(^1\), Wanjing Wang, BS\(^2\), Rohit Khurana, BS\(^3\), Hongfang Liu, PhD\(^4\), Ming Huang, PhD\(^{4,5}\) \
 

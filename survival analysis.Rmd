@@ -1,6 +1,7 @@
 ---
 title: "Survival Analysis of Treatment Effect on Cirrhosis"
 output: html_document
+site: _site.yml
 ---
 Group 1: Fiona Li, Peilin Zhou, Lesi He, Hao Zheng, Yihan Qiu\
 

@@ -1,6 +1,7 @@
 ---
 title: "More About Lesi"
 output: html_document
+site: _site.yml
 ---
 <style>
 .center-container {
