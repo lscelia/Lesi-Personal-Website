@@ -6,17 +6,17 @@ output:
     toc_float: true
     theme: yeti
 ---
-#![](link)
+<img src="figures/photos/graduate_photo.JPG" width="40%"/> 
 
-# About
+## About
 M.S. in Biostatistics (Statistical Genetics Track) @ Columbia University \
 B.S. in Chemistry @ Purdue University \
 >>> [More about me](about.html)
 
-# Projects
+## Projects
 * NLP, Sentiment & Topic Analysis (Ongoing): [Patient Portal App Review Analysis](patient_portal.html) 
 * Data Visualization: [Do You Smoke?](https://lscelia.github.io/Smoking_in_US/index.html)
-* Survival Analysis:[Treament Effect on Cirrhosis](survival-analysis.html)
-* Genetic Clustering Analysis: [AlphaCluster](https://assets.researchsquare.com/files/rs-1910518/v3_covered.pdf?c=1681182664)
-* EDA, Machine Learning: [Forecast of Demand for Sharing Bikes in Seoul]()
+* Survival Analysis: [Treament Effect on Cirrhosis](survival-analysis.html)
+* Genetic Clustering Analysis:  [AlphaCluster](https://assets.researchsquare.com/files/rs-1910518/v3_covered.pdf?c=1681182664)
+* EDA, Machine Learning: [Forecast of Demand for Sharing Bikes in Seoul](files/Final Report_Qi, He, Xu.pdf)
 

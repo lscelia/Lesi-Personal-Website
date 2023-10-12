@@ -1,9 +1,49 @@
 ---
-title: "About"
+title: "More About Lesi"
+output: html_document
 ---
+<style>
+.center-container {
+    text-align: center;
+    width: 100%;
+}
 
-### About this site
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+Hello! This is Lesi He ; ) \
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+<figure class="center-container">
+    <img src="figures/photos/xinjiang.JPG" class="center-image" width="30%" alt="Description of Image"/>
+    <figcaption>Xinjiang, China</figcaption>
+</figure>
+
+I also go by Celia (which has a pronunciation similar to my nickname in Cantonese). I was born in Guangzhou, China, and moved to California during my high school years. Traveling has always been one of my greatest passions, and I relish the opportunity to explore new places and cultures.\
+
+<figure class="center-container">
+    <img src="figures/photos/puerto rico.JPEG" class="center-image" width="30%" alt="Description of Image"/>
+    <figcaption>Puerto Rico</figcaption>
+</figure>
+
+<figure class="center-container">
+    <img src="figures/photos/egypt.JPG" class="center-image" width="30%" alt="Description of Image"/>
+    <figcaption>Egypt</figcaption>
+</figure>
+
+ \
+When I'm not on the road, I can often be found in the kitchen, experimenting with new recipes and cooking techniques: 
+<img src="figures/photos/cookie.jpg" width="30%"/> <img src="figures/photos/cheese.jpg" width="30%"/> <img src="figures/photos/basike.jpg" width="30%"/> 
+ \
+ 
+
+
+### Website
+This website illustrates some of my projects conducted during the MS program at Columbia University.
+ \
+
+### Resume
+If you are interested in my resume, please contact me via [lh3109@caa.columbia.edu](mailto:lh3109@caa.columbia.edu)
