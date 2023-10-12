@@ -9,11 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Lesi He" />
 
-<meta name="date" content="2023-10-11" />
 
-<title>survival analysis</title>
+<title>Survival Analysis of Treatment Effect on Cirrhosis</title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -257,7 +255,22 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="about.html">About</a>
+  <a href="about.html">About Me</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="patient_portal.html">Patient Portal App Review Analysis</a>
+    </li>
+    <li>
+      <a href="https://lscelia.github.io/Smoking_in_US/index.html">Do You Smoke?</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="mailto:lh3109@caa.columbia.edu">
@@ -280,15 +293,209 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">survival analysis</h1>
-<h4 class="author">Lesi He</h4>
-<h4 class="date">2023-10-11</h4>
+<h1 class="title toc-ignore">Survival Analysis of Treatment Effect on
+Cirrhosis</h1>
 
 </div>
 
 
+<p>Group 1: Fiona Li, Peilin Zhou, Lesi He, Hao Zheng, Yihan Qiu<br />
+</p>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
+<p>Each year, approximately one million deaths are due to complications
+of cirrhosis, making cirrhosis the 11th most common cause of death
+globally [1]. Cirrhosis is a late stage of scarring (fibrosis) of the
+liver caused by long-term liver damage. Causes of cirrhosis include
+alcoholism, problems affecting the bile ducts, immune system inherited
+conditions and long-term use of certain medicines. Generally, there is
+no effective cure for cirrhosis for now, however, there are ways that
+may be able to stop cirrhosis from getting worse, such as healthy
+lifestyle and treating the problem that led to cirrhosis.</p>
+<p>D-penicillamine, which primarily can decrease hepatic copper by
+increasing urinary copper excretion, inhibit fibrogenesis and prevent
+the appearance of scar lesions in the liver, is used for patients with
+primary biliary cirrhosis. However, for patients who are recommended to
+take emergency liver transplantation, D-penicillamine is debated whether
+it’s effective with treating acute liver failure [4,5]. Our project aims
+to investigate whether taking D-penicillamine or not can affect the
+survival rate of cirrhosis patients.<br />
+<br />
+</p>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>The <a
+href="https://www.kaggle.com/datasets/fedesoriano/cirrhosis-prediction-dataset">Cirrhosis
+Prediction Dataset</a> contains the information of 424 patients with
+primary biliary cirrhosis collected from the Mayo Clinic trial between
+1974 and 1984. After data cleaning process, 276 patients are remained
+for further analysis</p>
+<p><img src="figures/data%20summary.png" /><br />
+ </p>
+</div>
+<div id="eda" class="section level2">
+<h2>EDA</h2>
+<p><img src="figures/corr.png" /></p>
+</div>
+<div id="methods-results" class="section level2">
+<h2>Methods &amp; Results</h2>
+<div id="life-table" class="section level3">
+<h3>Life Table</h3>
+<p>Life table is an approach commonly used in survival analysis to
+describe the mortality experience of a cohort of people.It is used in
+continuous survival data. Here, we created life tables for
+D-penicillamine (treatment) and placebo (control) groups:<br />
+<br />
+D-penicillamine:<br />
+<img src="figures/trt%20life%20table.png" width="60%"/><br />
+<br />
+Placebo:<br />
+<img src="figures/ctrl%20life%20table.png" width="60%"/></p>
+<p>The median survival time for D-penicillamine (Treatment) is 8.5
+years, and the median survival time for placebo (Control) is 9.4
+years.<br />
+<br />
+</p>
+</div>
+<div id="km" class="section level3">
+<h3>KM</h3>
+<p><img src="figures/KM.png" /></p>
+<p><br />
+</p>
+</div>
+<div id="log-rank-test" class="section level3">
+<h3>Log-rank Test</h3>
+<p>We performed a log-rank test comparing D-penicillamine (Treatment)
+and Placebo (Control):<br />
+* Null Hypothesis: there is no difference in survival distributions
+between treatment and control groups.<br />
+* Alternative Hypothesis: there is significant difference in survival
+distributions between treatment and control groups. Significance level:
+alpha = 0.05<br />
+<br />
+<img src="figures/logrank%20table.png" width="60%"/></p>
+<p><br />
+Since p-value = 0.5 &gt; 0.05, we fail to reject the null hypothesis and
+conclude that there is no difference between the populations in the
+probability of an event (death) at any time point between treatment and
+control groups.<br />
+<br />
+</p>
+</div>
+<div id="cox-ph-model" class="section level3">
+<h3>Cox PH Model</h3>
+<p>To evaluate simultaneously the effect of several factors on the
+hazard rate of a particular event at a particular point in time, we
+utilized the COX PH Model.Here are the steps:<br />
+1. Fit a full model<br />
+2. Perform backward stepwise variable selection (AIC)<br />
+3. Refit model with selected variables and treatment variable 4. Check
+model assumptions with schoenfeld residual test and plot<br />
+5. Add time-varying covariates/stratification and check assumptions
+again<br />
+6. Fit final model<br />
+<br />
+After performing variable selection, the variables are reduced to:
+treatment, age, edema, bilirubin, albumin, copper, sgot, prothrombin,
+stage (Treatment variable is kept in the model for research
+purpose).<br />
+<br />
+</p>
+<p>We checked the model assumption through Schoenfeld residual
+test:<br />
+<img src="figures/bili.png" width="30%"/>
+<img src="figures/pro.png" width="30%"/>
+<img src="figures/check_assump%20table.png" width="30%"/></p>
+<p>As shown in the plots, Bilirubin and prothrombin seem to be
+time-dependent: from the start of the study to around 1100 days, and
+from 1100 days to the end of study. Hence, we needed to fit a cox model
+with time-varying coefficients</p>
+<p>Our final model is stratified by time group and interact with the two
+covariates. From the table, we can see that the treatment variable is
+not statistically significant to the model (p value = 0.67)<br />
+<img src="figures/final_model.png" width="60%"/></p>
+<p>Interpreting the table, we can see that:<br />
+</p>
+<ul>
+<li>Bilirubin variable in time group 1 has a hazard ratio of 1.07 and
+its hazard ratio increases to 1.20 in time group 2 (both have p value
+smaller than 0.05), indicating that patients with lower serum bilirubin
+level are more likely to survive.</li>
+<li>Prothrombin variable:
+<ul>
+<li>From the start of the study to 1100 days (time group = 1), it has a
+hazard ratio of 1.57 with a p value &lt; 0.05, suggesting that patients
+with shorter prothrombin time (in seconds) are more likely to
+survive;</li>
+<li>From the 1100th day to the end of the study (time group = 2), its
+hazard ratio has a p value larger than 0.05, suggesting that this
+variable is not statistically significant.</li>
+</ul></li>
+<li>Albumin variable has hazard ratio of 0.49 with a p value &lt; 0.05,
+indicating that the patients with relatively higher albumin level are
+more likely to survive.</li>
+<li>EdemaY variable has a hazard ratio of 2.53 with a p value &lt; 0.05,
+suggesting that the patients who have edema despite diuretic therapy
+have higher risk of death comparing to those without edema.<br />
+<br />
+</li>
+</ul>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>The drug D-penicillamine does not have statistically significant
+contribution to improve the survival rate of cirrhosis patients.
+Maintaining a normal range of serum albumin level (3.8 to 5.1g/dl) is
+crucial for lowering the risk of death for cirrhosis patients<br />
+<br />
+</p>
+</div>
+<div id="discussion" class="section level2">
+<h2>Discussion</h2>
+<p>The log-rank test is purely a significance test and cannot provide an
+estimate of the size of the difference between the groups and its
+related confidence interval. In this project, liver transplant is
+considered as a censoring event. The K-M estimator can lead to
+overestimation of cumulative incidence. An alternative method, competing
+risk regression, can be applied to this dataset to deal with this
+problem in the future.<br />
+<br />
+</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p>[1] Asrani SK, Devarbhavi H, Eaton J, Kamath PS (January 2019).
+“Burden of liver diseases in the world”. Journal of Hepatology. 70 (1):
+151–171.<br />
+[2] Villarroel MA, Blackwell DL, Jen A. Tables of Summary Health
+Statistics for U.S. Adults: 2018 National Health Interview Survey.
+National Center for Health Statistics. 2019. Available from: <a
+href="http://www.cdc.gov/nchs/nhis/SHS/tables.html"
+class="uri">http://www.cdc.gov/nchs/nhis/SHS/tables.html</a><br />
+[3] Centers for Disease Control and Prevention, National Center for
+Health Statistics. National Vital Statistics System, Mortality 1999-2020
+on CDC WONDER Online Database, released in 2021. Data are from the
+Multiple Cause of Death Files, 1999-2020, as compiled from data provided
+by the 57 vital statistics jurisdictions through the Vital Statistics
+Cooperative Program. Accessed at <a
+href="http://wonder.cdc.gov/ucd-icd10.html"
+class="uri">http://wonder.cdc.gov/ucd-icd10.html</a><br />
+[4] Bellary S, Hassaneim T, Van Thiel DH (1995) Liver transplantation
+for Wilson’s disease. J Hepatol 23:373–381. / [5] Stampfl DA, Munoz SJ,
+Moritz MJ, et al. (1990) Heterotopic liver transplantation for fulminant
+Wilson’s disease. Gastroenterology 99:1834–1836.<br />
+[6] fedesoriano. (August 2021). Cirrhosis Prediction Dataset. Retrieved
+[Date Retrieved] from <a
+href="https://www.kaggle.com/fedesoriano/cirrhosis-prediction-dataset"
+class="uri">https://www.kaggle.com/fedesoriano/cirrhosis-prediction-dataset</a>.<br />
+[7] Stel, V.S. et al. (2011) Survival analysis I: The kaplan-meier
+method, Nephron Clinical Practice. Karger Publishers. Available at: <a
+href="https://www.karger.com/Article/Fulltext/324758#"
+class="uri">https://www.karger.com/Article/Fulltext/324758#</a>:~:text=A%20limitation%20of%20the%20KM,and%20its%20related%20confidence%20interval.
+(Accessed: December 3, 2022).<br />
+</p>
 </div>
 
 

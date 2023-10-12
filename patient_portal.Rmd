@@ -2,7 +2,7 @@
 title: "Analyzing Topics and Sentiment of User Reviews to Enhance Healthcare Delivery through and Patient Experience on Patient Portals: A Case Study"
 output: html_document
 ---
-Lesi He, MS\(^1\), Wanjing Wang, BS\(^2\), Rohit Khurana, BS\(^3\), Hongfang Liu, PhD4, Ming Huang, PhD\(^{4,5}\) \
+Lesi He, MS\(^1\), Wanjing Wang, BS\(^2\), Rohit Khurana, BS\(^3\), Hongfang Liu, PhD\(^4\), Ming Huang, PhD\(^{4,5}\) \
 
 \(^1\)Columbia University, NY, USA; \(^2\)University of Pennsylvania, PA, USA; \(^3\)Stanford University, CA, USA; \(^4\)University of Texas Health Science Center at Houston, TX, USA; \(^5\)Mayo Clinic, Rochester, MN, USA \
 
